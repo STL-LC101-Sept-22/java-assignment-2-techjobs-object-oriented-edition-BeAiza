@@ -7,6 +7,7 @@ public class PositionType {
     private int id;
     private static int nextId = 1;
     private String value;
+    private String name;
 
     public PositionType() {
         id = nextId;
@@ -56,4 +57,7 @@ public class PositionType {
         this.value = value;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

@@ -7,6 +7,7 @@ public class Location {
     private int id;
     private static int nextId = 1;
     private String value;
+    private String name;
 
     public Location() {
         id = nextId;
@@ -54,4 +55,7 @@ public class Location {
         this.value = value;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }

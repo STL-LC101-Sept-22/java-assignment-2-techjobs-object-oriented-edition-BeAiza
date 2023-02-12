@@ -46,4 +46,12 @@ public class JobTest {
         assertNotEquals(job1, job2);
     }
 
+    @Test
+    public void testToStringStartsAndEndsWithNewLine() {
+        Job job = new Job();
+        String result = job.toString();
+        assertEquals('\n', result.charAt(0));
+        assertEquals('\n', result.charAt(result.length() - 1));
+    }
+
 }

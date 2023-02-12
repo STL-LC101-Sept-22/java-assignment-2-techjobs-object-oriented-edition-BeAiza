@@ -7,6 +7,7 @@ public class Employer {
     private int id;
     private static int nextId = 1;
     private String value;
+    private String name;
 
     public Employer() {
         id = nextId;
@@ -52,4 +53,7 @@ public class Employer {
         this.value = value;
     }
 
+    public String getName() {
+        return this.name;
+    }
 }
