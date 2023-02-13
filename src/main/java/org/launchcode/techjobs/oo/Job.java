@@ -1,6 +1,7 @@
 package org.launchcode.techjobs.oo;
 
 import java.util.Objects;
+import java.util.StringJoiner;
 
 public class Job {
 
@@ -35,6 +36,7 @@ public class Job {
         this.positionType = positionType;
         this.coreCompetency = coreCompetency;
     }
+
 
 
     public int getId() {
@@ -81,8 +83,17 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+
+    @Override
     public String toString() {
-        return "\n\n";
+        StringJoiner sj = new StringJoiner("\n");
+        sj.add("ID: " + this.id);
+        sj.add("Name: " + this.name);
+        sj.add("Employer: " + this.employer.getValue());
+        sj.add("Location: " + this.location.getValue());
+        sj.add("Position Type: " + this.positionType.getValue());
+        sj.add("Core Competency: " + this.coreCompetency.getValue());
+        return sj.toString();
     }
     @Override
     public boolean equals(Object o) {
@@ -97,4 +108,7 @@ public class Job {
         return Objects.hash(getId());
     }
 
+
+    public void setId(int i) {
+    }
 }

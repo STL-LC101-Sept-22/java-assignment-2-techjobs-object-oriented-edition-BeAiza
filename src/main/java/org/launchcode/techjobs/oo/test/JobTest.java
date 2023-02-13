@@ -37,6 +37,7 @@ public class JobTest {
         assertTrue(job.getCoreCompetency() instanceof CoreCompetency);
         assertEquals("Persistence", job.getCoreCompetency().getName());
     }
+
     @Test
     public void testJobsForEquality() {
         Job job1 = new Job("Product tester", new Employer("ACME"), new Location("Desert"),
@@ -46,12 +47,44 @@ public class JobTest {
         assertNotEquals(job1, job2);
     }
 
+
     @Test
     public void testToStringStartsAndEndsWithNewLine() {
         Job job = new Job();
-        String result = job.toString();
-        assertEquals('\n', result.charAt(0));
-        assertEquals('\n', result.charAt(result.length() - 1));
+        String toString = job.toString();
+        assertEquals("\n" + toString + "\n", toString);
     }
 
+    @Test
+    public void testToStringContainsCorrectLabelsAndData() {
+        Job job = new Job();
+        job.setId(1);
+        job.setName("Software Engineer");
+        job.setEmployer(new Employer("LaunchCode"));
+        job.setLocation(new Location("St. Louis, MO"));
+        job.setPositionType(new PositionType("Full-Time"));
+        job.setCoreCompetency(new CoreCompetency("Java"));
+
+        String toString = job.toString();
+        assertTrue(toString.contains("ID: 1\n"));
+        assertTrue(toString.contains("Name: Software Engineer\n"));
+        assertTrue(toString.contains("Employer: LaunchCode\n"));
+        assertTrue(toString.contains("Location: St. Louis, MO\n"));
+        assertTrue(toString.contains("Position Type: Full-Time\n"));
+        assertTrue(toString.contains("Core Competency: Java\n"));
+
+    }
+
+    @Test
+    public void testToStringHandlesEmptyField() {
+        Job job = new Job();
+        job.setId(1);
+        String toString = job.toString();
+        assertTrue(toString.contains("ID: 1\n"));
+        assertTrue(toString.contains("Name: Software Engineer\n"));
+        assertTrue(toString.contains("Employer: LaunchCode\n"));
+        assertTrue(toString.contains("Location: St. Louis, MO\n"));
+        assertTrue(toString.contains("Position Type: Full-Time\n"));
+        assertTrue(toString.contains("Core Competency: Java\n"));
+    }
 }
