@@ -7,7 +7,7 @@ public class PositionType extends JobField {
     private int id;
     private static int nextId = 1;
     private String value;
-    private String name;
+
 
     public PositionType() {
         id = nextId;
@@ -17,7 +17,20 @@ public class PositionType extends JobField {
     public PositionType(String value) {
         this();
         this.value = value;
-        this.name = value;
+
+    }
+    public int getId() {
+        return id;
+    }
+
+    // remove setID, then users can change the id value, which may cause problems in the program.
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+
+        this.value = value;
     }
 
 
@@ -28,10 +41,12 @@ public class PositionType extends JobField {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof PositionType)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         PositionType that = (PositionType) o;
-        return id == that.id;
+        return value.equals(that.value);
     }
 
     @Override
@@ -46,19 +61,6 @@ public class PositionType extends JobField {
 
     // Getters and Setters:
 
-    public int getId() {
-        return id;
-    }
 
-    public String getValue() {
-        return value;
-    }
 
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getName() {
-        return this.name;
-    }
 }

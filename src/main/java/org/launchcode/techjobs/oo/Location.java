@@ -7,7 +7,7 @@ public class Location extends JobField{
     private int id;
     private static int nextId = 1;
     private String value;
-    private String name;
+
 
     public Location() {
         id = nextId;
@@ -38,6 +38,7 @@ public class Location extends JobField{
 
     @Override
     public int hashCode() {
+
         return Objects.hash(getId());
     }
 
@@ -47,19 +48,19 @@ public class Location extends JobField{
         return id;
     }
 
+// remove setID, then users can change the id value, which may cause problems in the program.
     public String getValue() {
+
         return value;
     }
 
     public void setValue(String value) {
+
         this.value = value;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
-    public String getName() {
-        return this.name;
-    }
+
+
+
 }

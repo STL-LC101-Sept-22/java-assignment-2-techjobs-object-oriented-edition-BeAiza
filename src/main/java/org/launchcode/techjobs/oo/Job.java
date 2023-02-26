@@ -23,11 +23,12 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+    // First constructor to initialize a unique ID
     public Job() {
         id = nextId;
         nextId++;
     }
-
+    // Second constructor to initialize all fields
     public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
         this();
         this.name = name;
@@ -42,14 +43,10 @@ public class Job {
     public int getId() {
         return id;
     }
-
-    public String getName() {
-        return name;
+    public void setId(int i) {
+        this.id = i;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public Employer getEmployer() {
         return employer;
@@ -95,20 +92,23 @@ public class Job {
         sj.add("Core Competency: " + this.coreCompetency.getValue());
         return sj.toString();
     }
+
+    // Custom equals method
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Job)) return false;
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
         Job job = (Job) o;
-        return getId() == job.getId();
+        return id == job.id;
     }
 
+    // Custom hashCode method
     @Override
     public int hashCode() {
-        return Objects.hash(getId());
+        return Objects.hash(id);
     }
 
 
-    public void setId(int i) {
-    }
 }
