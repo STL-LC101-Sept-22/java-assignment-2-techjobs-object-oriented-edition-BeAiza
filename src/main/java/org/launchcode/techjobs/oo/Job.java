@@ -39,11 +39,11 @@ public class Job {
 
     @Override
     public String toString() {
-        String nameValue = (name == "") ? "Data not available" : name;
-        String employerValue = (employer == null || employer.getValue() == "") ? "Data not available" : employer.getValue();
-        String locationValue = (location == null || location.getValue() == "") ? "Data not available" : location.getValue();
-        String positionTypeValue = (positionType == null || positionType.getValue() == "") ? "Data not available" : positionType.getValue();
-        String coreCompetencyValue = (coreCompetency == null || coreCompetency.getValue() == "") ? "Data not available" : coreCompetency.getValue();
+        String nameValue = (Objects.equals(name, "")) ? "Data not available" : name;
+        String employerValue = (employer == null || Objects.equals(employer.getValue(), "")) ? "Data not available" : employer.getValue();
+        String locationValue = (location == null || Objects.equals(location.getValue(), "")) ? "Data not available" : location.getValue();
+        String positionTypeValue = (positionType == null || Objects.equals(positionType.getValue(), "")) ? "Data not available" : positionType.getValue();
+        String coreCompetencyValue = (coreCompetency == null || Objects.equals(coreCompetency.getValue(), "")) ? "Data not available" : coreCompetency.getValue();
 
         return "\nID: " + id +
                 "\nName: " + nameValue +

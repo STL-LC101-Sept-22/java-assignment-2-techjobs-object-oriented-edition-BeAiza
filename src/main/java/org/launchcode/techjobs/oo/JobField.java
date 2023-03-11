@@ -46,8 +46,12 @@ public abstract class JobField {
     public String getValue() {
         return value;
     }
+
+    protected void setValue(String value) {
+        this.value = value;
+    }
 //    public void setValue(String value) {
-//        this.value = value;
+//
 //    }
 }
 

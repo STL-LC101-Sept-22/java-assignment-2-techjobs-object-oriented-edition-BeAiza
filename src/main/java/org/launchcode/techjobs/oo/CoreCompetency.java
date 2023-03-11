@@ -7,11 +7,12 @@ public class CoreCompetency extends JobField {
        super(value);
     }
 
+    public String getValue() {
+        return super.getValue();
+    }
 
-
-    @Override
-    public String toString() {
-        return getValue();
+    public void setValue(String value) {
+        super.setValue(value);
     }
 
 
